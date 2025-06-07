@@ -5,8 +5,20 @@ const { sequelize } = require('./config/db');
 const authRoutes = require('./routes/auth');
 const User = require('./models/User');
 
+const allowedOrigins = ['https://liquidwaterproofingacademy.com', 'http://localhost:3000'];
+
+app.use(cors({
+  origin: allowedOrigins,
+  methods: ['GET', 'POST', 'PUT', 'DELETE'],
+  credentials: true
+}));
+
 const app = express();
-app.use(cors());
+app.use(cors({
+    origin: 'https://liquidwaterproofingacademy.com',
+    methods: ['GET', 'POST', 'PUT', 'DELETE'],
+    credentials: true
+  }));  
 app.use(express.json());
 
 app.use('/api', authRoutes);
@@ -17,7 +29,7 @@ app.get('/', (req, res) => {
 
 const PORT = process.env.PORT || 3001;
 
-app.listen(PORT, async () => {
+app.listen(PORT, '0.0.0.0', async () => {
   try {
     await sequelize.authenticate();
     await sequelize.sync(); // Crea la tabla si no existe
