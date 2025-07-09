@@ -31,6 +31,12 @@ app.get('/', (req, res) => {
 
 const PORT = process.env.PORT || 3001;
 
+const uploadRoutes = require('./routes/upload');
+
+app.use('/uploads', express.static('uploads'));
+app.use('/api', uploadRoutes); // después del authRoutes si quieres
+
+
 app.listen(PORT, '0.0.0.0', async () => {
   try {
     await sequelize.authenticate();
