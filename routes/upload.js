@@ -22,4 +22,18 @@ router.post('/upload', upload.single('file'), (req, res) => {
   res.json({ success: true, url: fileUrl });
 });
 
+// Listar archivos subidos
+router.get('/list', (req, res) => {
+    fs.readdir(uploadDir, (err, files) => {
+      if (err) return res.status(500).json({ error: 'Error al leer archivos.' });
+  
+      const fileUrls = files.map(filename => {
+        return `${req.protocol}://${req.get('host')}/uploads/${filename}`;
+      });
+  
+      res.json({ files: fileUrls });
+    });
+  });
+  
+
 module.exports = router;
