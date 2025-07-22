@@ -5,24 +5,23 @@ const { sequelize } = require('./config/db');
 const authRoutes = require('./routes/auth');
 const User = require('./models/User');
 
-const app = express(); 
-
 const allowedOrigins = ['https://liquidwaterproofingacademy.com', 'http://localhost:3000'];
 
-
-
-/* Updated*/
+const app = express();
 
 app.use(cors({
-  origin: (origin, callback) => {
-    if (!origin || allowedOrigins.includes(origin)) {
-      return callback(null, true);
-    }
-    return callback(new Error("Not allowed by CORS"));
-  },
+  origin: allowedOrigins,
   methods: ['GET', 'POST', 'PUT', 'DELETE'],
   credentials: true
 }));
+
+
+app.use(cors({
+    origin: 'https://liquidwaterproofingacademy.com',
+    methods: ['GET', 'POST', 'PUT', 'DELETE'],
+    credentials: true
+  }));  
+app.use(express.json());
 
 
 app.use('/api', authRoutes);
