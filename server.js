@@ -5,23 +5,15 @@ const { sequelize } = require('./config/db');
 const authRoutes = require('./routes/auth');
 const User = require('./models/User');
 
-const allowedOrigins = ['https://liquidwaterproofingacademy.com', 'http://localhost:3000'];
-
 const app = express();
+
+const allowedOrigins = ['https://liquidwaterproofingacademy.com', 'http://localhost:3000'];
 
 app.use(cors({
   origin: allowedOrigins,
   methods: ['GET', 'POST', 'PUT', 'DELETE'],
   credentials: true
 }));
-
-
-app.use(cors({
-    origin: 'https://liquidwaterproofingacademy.com',
-    methods: ['GET', 'POST', 'PUT', 'DELETE'],
-    credentials: true
-  }));  
-app.use(express.json());
 
 
 app.use('/api', authRoutes);
