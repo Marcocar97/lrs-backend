@@ -10,18 +10,16 @@ const allowedOrigins = ['https://liquidwaterproofingacademy.com', 'http://localh
 const app = express();
 
 app.use(cors({
-  origin: allowedOrigins,
+  origin: (origin, callback) => {
+    if (!origin || allowedOrigins.includes(origin)) {
+      return callback(null, true);
+    }
+    return callback(new Error("Not allowed by CORS"));
+  },
   methods: ['GET', 'POST', 'PUT', 'DELETE'],
   credentials: true
 }));
 
-
-app.use(cors({
-    origin: 'https://liquidwaterproofingacademy.com',
-    methods: ['GET', 'POST', 'PUT', 'DELETE'],
-    credentials: true
-  }));  
-app.use(express.json());
 
 app.use('/api', authRoutes);
 
