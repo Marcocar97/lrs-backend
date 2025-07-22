@@ -7,14 +7,12 @@ const User = require('./models/User');
 
 const app = express();
 
-const allowedOrigins = ['https://liquidwaterproofingacademy.com', 'http://localhost:3000'];
-
 app.use(cors({
-  origin: allowedOrigins,
+  origin: 'https://liquidwaterproofingacademy.com',
   methods: ['GET', 'POST', 'PUT', 'DELETE'],
   credentials: true
-}));
-
+}));  
+app.use(express.json());
 
 app.use('/api', authRoutes);
 
