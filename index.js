@@ -5,9 +5,11 @@ const { sequelize } = require('./config/db');
 const authRoutes = require('./routes/auth');
 const User = require('./models/User');
 
+const app = express(); 
+
 const allowedOrigins = ['https://liquidwaterproofingacademy.com', 'http://localhost:3000'];
 
-const app = express(); 
+
 
 /* Updated*/
 
