@@ -1,0 +1,244 @@
+{
+  "version": "2026-11-10.1",
+  "systems": [
+    {
+      "key": "rapidroof",
+      "label": "RapidRoof",
+      "guarantees": [
+        "10-year",
+        "20-year",
+        "25-year"
+      ],
+      "surfaces": [
+        "Asbestos",
+        "Concrete",
+        "Existing Coatings",
+        "Single-Ply",
+        "VCL",
+        "Asphalt",
+        "Felt",
+        "GRP",
+        "Metal",
+        "Timber"
+      ]
+    },
+    {
+      "key": "fastcoat",
+      "label": "FastCoat",
+      "guarantees": [
+        "20-year",
+        "25-year"
+      ],
+      "surfaces": [
+        "Fibre Cement",
+        "Concrete",
+        "Existing Coatings",
+        "Single-Ply",
+        "VCL",
+        "Asphalt",
+        "Felt",
+        "GRP",
+        "Metal",
+        "Timber"
+      ]
+    }
+  ],
+  "fields": [
+    {
+      "name": "lrsReference",
+      "label": "LRS specification reference",
+      "required": true,
+      "max": 80
+    },
+    {
+      "name": "reference",
+      "label": "Project name / address",
+      "required": true,
+      "max": 500
+    },
+    {
+      "name": "date",
+      "label": "Specification date",
+      "type": "date",
+      "required": true
+    },
+    {
+      "name": "roofSize",
+      "label": "Roof size (m\u00b2)",
+      "type": "text",
+      "required": true
+    },
+    {
+      "name": "attention",
+      "label": "For the attention of",
+      "required": true,
+      "max": 250
+    },
+    {
+      "name": "preparedBy",
+      "label": "Prepared by",
+      "required": true,
+      "max": 160
+    },
+    {
+      "name": "preparedByRole",
+      "label": "Job title",
+      "max": 160
+    },
+    {
+      "name": "preparedByPhone",
+      "label": "Contact phone",
+      "max": 80
+    },
+    {
+      "name": "preparedByEmail",
+      "label": "Contact email",
+      "max": 254
+    },
+    {
+      "name": "guarantee",
+      "label": "Guarantee",
+      "required": true,
+      "type": "select"
+    },
+    {
+      "name": "surface",
+      "label": "Surface",
+      "required": true,
+      "type": "select"
+    },
+    {
+      "name": "roofType",
+      "label": "Roof type",
+      "required": true,
+      "type": "select",
+      "options": [
+        "Existing Overlay",
+        "Warm Roof",
+        "Inverted Roof"
+      ]
+    },
+    {
+      "name": "uValue",
+      "label": "U-value needed",
+      "type": "select",
+      "options": [
+        "0.11W/m\u00b2K",
+        "0.15Wm\u00b2K",
+        "0.16W/m\u00b2K",
+        "0.18W/m\u00b2K"
+      ],
+      "when": "Warm Roof"
+    },
+    {
+      "name": "roofBuildUp",
+      "label": "Roof build-up / construction details",
+      "type": "textarea",
+      "max": 3000
+    },
+    {
+      "name": "outlets",
+      "label": "Outlets",
+      "type": "select",
+      "required": true,
+      "options": [
+        "TBC",
+        "0",
+        "1",
+        "2",
+        "3",
+        "4",
+        "5",
+        "6",
+        "7",
+        "8",
+        "9",
+        "10+"
+      ]
+    },
+    {
+      "name": "skylights",
+      "label": "Skylights",
+      "type": "select",
+      "required": true,
+      "options": [
+        "TBC",
+        "0",
+        "1",
+        "2",
+        "3",
+        "4",
+        "5",
+        "6",
+        "7",
+        "8",
+        "9",
+        "10+"
+      ]
+    },
+    {
+      "name": "acUnits",
+      "label": "Air-conditioning units",
+      "type": "select",
+      "required": true,
+      "options": [
+        "TBC",
+        "0",
+        "1",
+        "2",
+        "3",
+        "4",
+        "5",
+        "6",
+        "7",
+        "8",
+        "9",
+        "10+"
+      ]
+    },
+    {
+      "name": "existingCoatings",
+      "label": "Existing coatings",
+      "type": "select",
+      "required": true,
+      "options": [
+        "Yes",
+        "No"
+      ]
+    },
+    {
+      "name": "pondingWater",
+      "label": "Ponding water",
+      "type": "select",
+      "required": true,
+      "options": [
+        "Yes",
+        "No"
+      ]
+    },
+    {
+      "name": "antiSkid",
+      "label": "Anti-skid",
+      "type": "select",
+      "required": true,
+      "options": [
+        "Yes",
+        "No"
+      ],
+      "system": "rapidroof"
+    },
+    {
+      "name": "trafficCoat",
+      "label": "Traffic coat",
+      "type": "select",
+      "required": true,
+      "options": [
+        "Yes",
+        "No"
+      ],
+      "system": "fastcoat"
+    }
+  ],
+  "max_image_bytes": 1500000,
+  "max_photos": 4
+}

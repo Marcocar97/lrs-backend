@@ -13,6 +13,7 @@ app.use(cors({
   credentials: true
 }));
 
+app.use('/api', require('./routes/specifications'));
 app.use(express.json());
 
 // Rutas

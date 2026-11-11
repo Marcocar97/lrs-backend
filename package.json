@@ -1,9 +1,11 @@
 {
   "name": "lrs-backend",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "node index.js",
+    "test": "node --test test/*.test.cjs",
+    "build:specifications": "node scripts/build-specifications.cjs"
   },
   "repository": {
     "type": "git",
@@ -18,12 +20,16 @@
   "homepage": "https://github.com/Marcocar97/lrs-backend#readme",
   "description": "",
   "dependencies": {
+    "@react-pdf/renderer": "4.3.1",
     "bcryptjs": "^3.0.2",
     "cors": "^2.8.5",
     "dotenv": "^16.5.0",
+    "esbuild": "0.25.12",
     "express": "^5.1.0",
     "jsonwebtoken": "^9.0.2",
+    "multer": "2.0.2",
     "mysql2": "^3.14.1",
+    "react": "19.1.1",
     "sequelize": "^6.37.7"
   }
 }
